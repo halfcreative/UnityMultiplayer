@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class MusicManager : MonoBehaviour {
+public class MusicManager : MonoBehaviour
+{
 
 
     private const string PLAYER_PREFS_MUSIC_VOLUME = "MusicVolume";
@@ -18,7 +18,8 @@ public class MusicManager : MonoBehaviour {
     private float volume = .3f;
 
 
-    private void Awake() {
+    private void Awake()
+    {
         Instance = this;
 
         audioSource = GetComponent<AudioSource>();
@@ -27,9 +28,11 @@ public class MusicManager : MonoBehaviour {
         audioSource.volume = volume;
     }
 
-    public void ChangeVolume() {
+    public void ChangeVolume()
+    {
         volume += .1f;
-        if (volume > 1f) {
+        if (volume > 1f)
+        {
             volume = 0f;
         }
         audioSource.volume = volume;
@@ -38,7 +41,8 @@ public class MusicManager : MonoBehaviour {
         PlayerPrefs.Save();
     }
 
-    public float GetVolume() {
+    public float GetVolume()
+    {
         return volume;
     }
 

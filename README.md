@@ -8,11 +8,11 @@ This project is the result of following the "Kitchen Chaos Multiplayer Course" t
 
 ## Tutorial Checklist
 
-- [ ] Intro, Overview
-- [ ] Final Game Preview
-- [ ] What you Should Know
-  - [ ] Follow this YouTube video: [Netcode for GameObjects](https://youtu.be/3yuBOB3VrCk?si=KAFzLj9IsEOUcSCP)
-- [ ] Singleplayer Overview
+- [x] Intro, Overview
+- [x] Final Game Preview
+- [x] What you Should Know
+  - [x] Follow this YouTube video: [Netcode for GameObjects](https://youtu.be/3yuBOB3VrCk?si=KAFzLj9IsEOUcSCP)
+- [x] Singleplayer Overview
 - [ ] Lecture 1. Install Netcode and Basic Setup
 - [ ] Lecture 2. Sync Player Movement, Client Vs Server Auth
 - [ ] Lecture 3. Sync Player Animations

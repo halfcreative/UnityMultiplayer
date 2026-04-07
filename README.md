@@ -20,8 +20,8 @@ This project is the result of following the "Kitchen Chaos Multiplayer Course" t
 - [x] Lecture 5. Fix Selected Counter Visual
 - [x] Lecture 6. Sync Pick up Objects
 - [x] Lecture 7. Sync Kitchen Object Parent
-- [ ] Lecture 8. Sync Plates Counter
-- [ ] Lecture 9. Sync Trash Counter
+- [x] Lecture 8. Sync Plates Counter
+- [x] Lecture 9. Sync Trash Counter
 - [ ] Lecture 10. Sync Cutting Counter
 - [ ] Lecture 11. Sync Stove Counter
 - [ ] Lecture 12. Sync Plate Add Ingredients

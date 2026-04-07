@@ -7,8 +7,15 @@ using Unity.Netcode;
 public class Player : NetworkBehaviour, IKitchenObjectParent
 {
 
+    public static event EventHandler OnAnyPlayerSpawned;
+    public static event EventHandler OnAnyPickedSomething;
 
-    // public static Player Instance { get; private set; }
+    public static Player LocalInstance { get; private set; }
+    public static void ResetStaticData()
+    {
+        OnAnyPlayerSpawned = null;
+    }
+
 
 
 
@@ -43,6 +50,15 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
         GameInput.Instance.OnInteractAlternateAction += GameInput_OnInteractAlternateAction;
     }
 
+    public override void OnNetworkSpawn()
+    {
+        if (IsOwner)
+        {
+            LocalInstance = this;
+        }
+        OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
+    }
+
     private void GameInput_OnInteractAlternateAction(object sender, EventArgs e)
     {
         if (!KitchenGameManager.Instance.IsGamePlaying()) return;
@@ -65,6 +81,7 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
 
     private void Update()
     {
+        if (!IsOwner) return;
         HandleMovement();
         HandleInteractions();
     }
@@ -184,7 +201,7 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
 
         if (kitchenObject != null)
         {
-            OnPickedSomething?.Invoke(this, EventArgs.Empty);
+            OnAnyPickedSomething?.Invoke(this, EventArgs.Empty);
         }
     }
 

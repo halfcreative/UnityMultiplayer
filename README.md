@@ -22,9 +22,9 @@ This project is the result of following the "Kitchen Chaos Multiplayer Course" t
 - [x] Lecture 7. Sync Kitchen Object Parent
 - [x] Lecture 8. Sync Plates Counter
 - [x] Lecture 9. Sync Trash Counter
-- [ ] Lecture 10. Sync Cutting Counter
-- [ ] Lecture 11. Sync Stove Counter
-- [ ] Lecture 12. Sync Plate Add Ingredients
+- [x] Lecture 10. Sync Cutting Counter
+- [x] Lecture 11. Sync Stove Counter
+- [x] Lecture 12. Sync Plate Add Ingredients
 - [ ] Lecture 13. Player Collisions
 - [ ] Lecture 14. Sync Game State
 - [ ] Lecture 15. Sync Pausing

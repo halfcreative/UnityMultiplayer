@@ -26,8 +26,8 @@ This project is the result of following the "Kitchen Chaos Multiplayer Course" t
 - [x] Lecture 11. Sync Stove Counter
 - [x] Lecture 12. Sync Plate Add Ingredients
 - [x] Lecture 13. Player Collisions
-- [ ] Lecture 14. Sync Game State
-- [ ] Lecture 15. Sync Pausing
+- [x] Lecture 14. Sync Game State
+- [x] Lecture 15. Sync Pausing
 - [ ] Lecture 16. Handle Disconnects
 - [ ] Lecture 17. Handle Late Joins
 - [ ] Lecture 18. Connection Scene Flow

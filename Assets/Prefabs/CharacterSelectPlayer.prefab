@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterSelectPlayer
   playerIndex: 0
   readyText: {fileID: 7533126359201226618}
+  playerVisual: {fileID: 2274391794282206647}
 --- !u!1 &7533126359201226618
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +298,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c5dda3c7cd3cf742afcade5419faeab, type: 3}
+--- !u!114 &2274391794282206647 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7636104594684340257, guid: 1c5dda3c7cd3cf742afcade5419faeab,
+    type: 3}
+  m_PrefabInstance: {fileID: 8532254086037405078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f194f41218d810a7bb52027d690fde5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerVisual
 --- !u!4 &6616336298398142898 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3294758251327466532, guid: 1c5dda3c7cd3cf742afcade5419faeab,

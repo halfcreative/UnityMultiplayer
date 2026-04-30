@@ -1,11 +1,18 @@
 using System;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KitchenGameMultiplayer : NetworkBehaviour
 {
+    private const int MAX_PLAYER_COUNT = 4;
 
     public static KitchenGameMultiplayer Instance { get; private set; }
+
+
+    public event EventHandler onTryingToJoinGame;
+
+    public event EventHandler onFailedToJoinGame;
 
     [SerializeField] private KitchenObjectListSO kitchenObjectListSO;
 
@@ -24,7 +31,14 @@ public class KitchenGameMultiplayer : NetworkBehaviour
 
     public void StartClient()
     {
+        onTryingToJoinGame?.Invoke(this, EventArgs.Empty);
+        NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_OnClientDisconnectCallback;
         NetworkManager.Singleton.StartClient();
+    }
+
+    private void NetworkManager_OnClientDisconnectCallback(ulong clientId)
+    {
+        onFailedToJoinGame?.Invoke(this, EventArgs.Empty);
     }
 
     /// <summary>
@@ -34,16 +48,19 @@ public class KitchenGameMultiplayer : NetworkBehaviour
     /// </summary>
     private void NetworkManager_ConnectionApprovalCallback(NetworkManager.ConnectionApprovalRequest request, NetworkManager.ConnectionApprovalResponse response)
     {
+        if (SceneManager.GetActiveScene().name != Loader.Scene.CharacterSelectScene.ToString())
+        {
+            response.Approved = false;
+            response.Reason = "Game has already started";
+            return;
+        }
+        if (NetworkManager.Singleton.ConnectedClientsIds.Count >= MAX_PLAYER_COUNT)
+        {
+            response.Approved = false;
+            response.Reason = "Game is full";
+            return;
+        }
         response.Approved = true;
-        // if (KitchenGameManager.Instance.isWaitingToStart())
-        // {
-        //     response.Approved = true;
-        //     response.CreatePlayerObject = true;
-        // }
-        // else
-        // {
-        //     response.Approved = false;
-        // }
     }
     public void SpawnKitchenObject(KitchenObjectSO kitchenObjectSO, IKitchenObjectParent kitchenObjectParent)
     {

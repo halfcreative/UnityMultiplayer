@@ -22,7 +22,9 @@ public class HostDisconnectUI : MonoBehaviour
 
     private void NetworkManager_OnClientDisconnectCallback(ulong clientId)
     {
-        if (clientId == NetworkManager.ServerClientId)
+        Debug.Log("Client Disconnected: " + clientId);
+        Debug.Log("Local Client Id: " + NetworkManager.Singleton.LocalClientId);
+        if (clientId == NetworkManager.Singleton.LocalClientId)
         {
             Show();
         }

@@ -30,7 +30,7 @@ This project is the result of following the "Kitchen Chaos Multiplayer Course" t
 - [x] Lecture 15. Sync Pausing
 - [x] Lecture 16. Handle Disconnects
 - [x] Lecture 17. Handle Late Joins
-- [ ] Lecture 18. Connection Scene Flow
+- [x] Lecture 18. Connection Scene Flow
 - [ ] Lecture 19. Character Select Scene
 - [ ] Lecture 20. Lobby
 - [ ] Lecture 21. Relay

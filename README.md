@@ -31,7 +31,7 @@ This project is the result of following the "Kitchen Chaos Multiplayer Course" t
 - [x] Lecture 16. Handle Disconnects
 - [x] Lecture 17. Handle Late Joins
 - [x] Lecture 18. Connection Scene Flow
-- [ ] Lecture 19. Character Select Scene
+- [x] Lecture 19. Character Select Scene
 - [ ] Lecture 20. Lobby
 - [ ] Lecture 21. Relay
 - [ ] Lecture 22. Game Server Hosting (Multiplay), Matchmaker, Vivox

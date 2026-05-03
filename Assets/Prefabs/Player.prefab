@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Netcode.Runtime::Unity.Netcode.NetworkObject
-  GlobalObjectIdHash: 1163550149
+  GlobalObjectIdHash: 214581755
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -91,6 +91,7 @@ MonoBehaviour:
   - {x: 2, y: 0, z: 0}
   - {x: -2, y: 0, z: -2}
   - {x: 2, y: 0, z: -2}
+  playerVisual: {fileID: 4323588746818220109}
 --- !u!114 &5826189633268776651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,6 +368,18 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 6194874619864455276}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4323588746818220109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7636104594684340257, guid: 1c5dda3c7cd3cf742afcade5419faeab,
+    type: 3}
+  m_PrefabInstance: {fileID: 6194874619864455276}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8665427650085631051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f194f41218d810a7bb52027d690fde5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerVisual
 --- !u!4 &8665427650085631048 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3294758251327466532, guid: 1c5dda3c7cd3cf742afcade5419faeab,

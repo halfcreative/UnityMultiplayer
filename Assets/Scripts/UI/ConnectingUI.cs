@@ -29,4 +29,13 @@ public class ConnectingUI : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    private void OnDestroy()
+    {
+        if (KitchenGameMultiplayer.Instance != null)
+        {
+            KitchenGameMultiplayer.Instance.onTryingToJoinGame -= KitchenGameMultiplayer_OnTryingToJoinGame;
+            KitchenGameMultiplayer.Instance.onFailedToJoinGame -= KitchenGameMultiplayer_OnFailedToJoinGame;
+        }
+    }
 }

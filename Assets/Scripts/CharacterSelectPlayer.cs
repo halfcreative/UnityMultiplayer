@@ -1,16 +1,32 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterSelectPlayer : MonoBehaviour
 {
     [SerializeField] private int playerIndex;
     [SerializeField] private GameObject readyText;
     [SerializeField] private PlayerVisual playerVisual;
+    [SerializeField] private Button kickButton;
+
+    private void Awake()
+    {
+        kickButton.onClick.AddListener(() =>
+        {
+            PlayerData playerData = KitchenGameMultiplayer.Instance.GetPlayerDataFromPlayerIndex(playerIndex);
+            KitchenGameMultiplayer.Instance.KickPlayer(playerData.clientId);
+        });
+    }
 
     private void Start()
     {
         CharacterSelectReady.Instance.onPlayerReadyChanged += CharacterSelectReady_OnPlayerReadyChanged;
         KitchenGameMultiplayer.Instance.onPlayerDataNetworkListChanged += KitchenGameMultiplayer_OnPlayerDataNetworkListChanged;
+
+        //Kickbutton should only be visible to the host/server
+        kickButton.gameObject.SetActive(NetworkManager.Singleton.IsServer);
+        //ReadyText is not active by default
         readyText.SetActive(false);
 
         UpdatePlayer();
@@ -49,6 +65,11 @@ public class CharacterSelectPlayer : MonoBehaviour
     private void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        KitchenGameMultiplayer.Instance.onPlayerDataNetworkListChanged -= KitchenGameMultiplayer_OnPlayerDataNetworkListChanged;
     }
 
 }

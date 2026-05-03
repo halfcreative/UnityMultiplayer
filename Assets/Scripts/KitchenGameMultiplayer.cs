@@ -40,6 +40,7 @@ public class KitchenGameMultiplayer : NetworkBehaviour
     {
         NetworkManager.Singleton.ConnectionApprovalCallback += NetworkManager_ConnectionApprovalCallback;
         NetworkManager.Singleton.OnClientConnectedCallback += NetworkManager_OnClientConnectedCallback;
+        NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_Host_OnClientDisconnectCallback;
         NetworkManager.Singleton.StartHost();
 
     }
@@ -49,7 +50,6 @@ public class KitchenGameMultiplayer : NetworkBehaviour
     {
         onTryingToJoinGame?.Invoke(this, EventArgs.Empty);
         NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_Client_OnClientDisconnectCallback;
-        NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_Host_OnClientDisconnectCallback;
         NetworkManager.Singleton.StartClient();
     }
 
@@ -242,6 +242,13 @@ public class KitchenGameMultiplayer : NetworkBehaviour
             }
         }
         return -1;
+    }
+
+    public void KickPlayer(ulong clientId)
+    {
+        Debug.Log("Kicking " + clientId);
+        NetworkManager.Singleton.DisconnectClient(clientId);
+        NetworkManager_Host_OnClientDisconnectCallback(clientId);
     }
 
 }

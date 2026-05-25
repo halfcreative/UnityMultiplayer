@@ -34,7 +34,7 @@ This project is the result of following the "Kitchen Chaos Multiplayer Course" t
 - [x] Lecture 19. Character Select Scene
 - [x] Lecture 20. Lobby
   - [x] Follow this YoutTube video: [Unity Lobby Tutorial](https://youtu.be/-KDlEBfCBiU?si=J_sV4S3wOYUxCquX)
-- [ ] Lecture 21. Relay
+- [x] Lecture 21. Relay
 - [ ] Lecture 22. Game Server Hosting (Multiplay), Matchmaker, Vivox
 - [ ] Lecture 23. Multiplayer Debugging Tools
 - [ ] Lecture 24. Singleplayer Option

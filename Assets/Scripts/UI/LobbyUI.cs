@@ -88,9 +88,9 @@ public class LobbyUI : MonoBehaviour
 
     }
 
-
-
-
-
+    private void OnDestroy()
+    {
+        KitchenGameLobby.Instance.OnLobbyListChanged -= KitchenGameLobby_OnLobbyListChanged;
+    }
 
 }

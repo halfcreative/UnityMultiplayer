@@ -67,7 +67,8 @@ public class KitchenGameLobby : MonoBehaviour
         {
             // Initialize Unity Services
             InitializationOptions initializationOptions = new InitializationOptions();
-            initializationOptions.SetProfile(UnityEngine.Random.Range(0, 10000).ToString());
+            // Use this to set a unique profile for each player in seperate builds
+            // initializationOptions.SetProfile(UnityEngine.Random.Range(0, 10000).ToString());
 
             await UnityServices.InitializeAsync(initializationOptions);
             await AuthenticationService.Instance.SignInAnonymouslyAsync();

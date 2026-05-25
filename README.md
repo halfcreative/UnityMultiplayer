@@ -37,10 +37,10 @@ This project is the result of following the "Kitchen Chaos Multiplayer Course" t
 - [x] Lecture 21. Relay
 - [x] Lecture 22. Game Server Hosting (Multiplay), Matchmaker, Vivox
 - [x] Lecture 23. Multiplayer Debugging Tools
-- [ ] Lecture 24. Singleplayer Option
-- [ ] Lecture 25. Gamepad Test
-- [ ] Lecture 26. Final Game
-- [ ] Congratulations
+- [x] Lecture 24. Singleplayer Option
+- [x] Lecture 25. Gamepad Test
+- [x] Lecture 26. Final Game
+- [x] Congratulations
 
 ## More Information
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
 using Unity.Services.Authentication;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,8 @@ public class KitchenGameMultiplayer : NetworkBehaviour
     private const string PLAYER_PREFS_PLAYER_NAME_MULTIPLAYER = "PlayerNameMultiplayer";
 
     public static KitchenGameMultiplayer Instance { get; private set; }
+
+    public static bool playMultiplayer;
 
 
     public event EventHandler onTryingToJoinGame;
@@ -34,6 +37,17 @@ public class KitchenGameMultiplayer : NetworkBehaviour
         playerName = PlayerPrefs.GetString(PLAYER_PREFS_PLAYER_NAME_MULTIPLAYER, "Player" + UnityEngine.Random.Range(0, 1000));
         playerDataNetworkList = new NetworkList<PlayerData>();
         playerDataNetworkList.OnListChanged += PlayerDataNetworkList_OnListChanged;
+    }
+
+    private void Start()
+    {
+        if (!playMultiplayer)
+        {
+            // Playing in singleplayer — reset transport to direct connection in case relay was used previously
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
+            StartHost();
+            Loader.LoadNetwork(Loader.Scene.GameScene);
+        }
     }
 
     public string GetPlayerName()
